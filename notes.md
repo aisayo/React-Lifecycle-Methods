@@ -35,7 +35,7 @@
 - Commonly used for fetching/updating data/asynchronous processes
 
 ### Updating
-
+_____________________________________________________________________________
 - Happens whenever a components state or props are changed
 - Component gets re-rendered, very quick and responsive
 
