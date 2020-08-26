@@ -33,3 +33,21 @@
 
 - Runs after the component output has been rendered to the dom
 - Commonly used for fetching/updating data/asynchronous processes
+
+### Updating
+
+- Happens whenever a components state or props are changed
+- Component gets re-rendered, very quick and responsive
+
+#### static getDerivedStateFromProps()
+
+- Gets invoked on update before anything else
+
+#### shouldComponentUpdate()
+
+- Invoked just before component will re-render
+- Can compare previous props or state with current props or state to avoid unnecessary re-render
+
+#### render()
+
+- Called after the first two methods
