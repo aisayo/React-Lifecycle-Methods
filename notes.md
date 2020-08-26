@@ -1,6 +1,11 @@
 # React Lifecycle Methods
 
-test
+## Component lifecycle consists of three phases:
+
+- Mounting(creation)
+- Updating
+- Unmounting(deletion)
+
 
 - [React Lifecycle Methods Diagram](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
