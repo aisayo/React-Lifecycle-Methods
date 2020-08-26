@@ -7,6 +7,7 @@
 3. Unmounting(deletion)
 
 - [React Lifecycle Methods Diagram](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+____________________________________________________________________________
 
 ### Mounting
 
@@ -34,8 +35,10 @@
 - Runs after the component output has been rendered to the dom
 - Commonly used for fetching/updating data/asynchronous processes
 
-### Updating
 _____________________________________________________________________________
+
+### Updating
+
 - Happens whenever a components state or props are changed
 - Component gets re-rendered, very quick and responsive
 
