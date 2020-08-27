@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Users from './Users'
+
+class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            users: [],
+            user: ''
+        }
+
+        console.log('inside constructor')
+        
+    }
+
+    // static getDerivedStateFromProps(props, state){
+    //     console.log('inside getDerivedStateFromProps', state)
+    //     return { user: props.user }
+    // }
+
+    componentDidMount(){
+        console.log('component did mount')
+        fetch('https://api.github.com/users')
+        .then(resp => resp.json())
+        .then(g => this.setState({ users: g }))
+        
+    }
+
+    
+
+    render() {
+
+        console.log('inside render', this.state)
+        return (
+            <div>
+                <Users users={this.state.users} />
+            </div>
+        );
+    }
 }
 
 export default App;
