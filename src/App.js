@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-import Users from './Users'
+import Brews from './Brews'
 
 class App extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            users: [],
-            user: ''
+            brews: [],
+            loading: true
         }
 
         console.log('inside constructor')
@@ -22,23 +22,40 @@ class App extends Component {
 
     componentDidMount(){
         console.log('component did mount')
-        fetch('https://api.github.com/users')
+        fetch('https://api.openbrewerydb.org/breweries')
         .then(resp => resp.json())
-        .then(g => this.setState({ users: g }))
+        .then(brews => this.setState({
+            brews: brews,
+            loading: false
+        }))
         
     }
 
-    
+    loading(){
+        if (this.state.loading){
+            return 'Loading...'
+        }
+    }
 
+    searchQuery = (brews) => {
+        this.setState({
+            brews: brews
+        })
+    }
     render() {
 
         console.log('inside render', this.state)
+
         return (
+
             <div>
-                <Users users={this.state.users} />
+                {this.loading()}
+                <Brews brews={this.state.brews} searchQuery={this.searchQuery}/>
             </div>
         );
     }
 }
 
 export default App;
+
+
