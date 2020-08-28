@@ -11,8 +11,9 @@ const Brew = (props) => {
             <Card style={cardStyle}>
                 <Card.Body>
                     <Card.Title style={{ color: 'red'}}>{brew.name}</Card.Title>
-                    <Card.Text>From: {brew.city}, {brew.state}</Card.Text>
-                    <Card.Text>Contact us at: {brew.phone} </Card.Text>
+                    <Card.Text>Location:{brew.city ? <>{brew.city}, {brew.state}</> : 'Not Available'}</Card.Text>
+                    <Card.Text>Contact: {brew.phone ? <>{brew.phone}</> : 'Not available'}</Card.Text>
+                    <Card.Text>Type: {brew.brewery_type} </Card.Text>
                     <Card.Link href={brew.website_url}>{brew.website_url}</Card.Link>
                 </Card.Body>
             </Card>

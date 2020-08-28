@@ -8,7 +8,8 @@ class App extends Component {
 
         this.state = {
             brews: [],
-            loading: true
+            loading: true,
+            type: ''
         }
 
         console.log('inside constructor')
@@ -31,6 +32,15 @@ class App extends Component {
         
     }
 
+    getSnapshotBeforeUpdate(prevProps, prevState){
+        console.log("prevState", prevState)
+        console.log("prevProps", prevProps)
+        console.log(this.props)
+        console.log(this.state)
+        return this.state
+    }
+
+
     loading(){
         if (this.state.loading){
             return 'Loading...'
@@ -42,6 +52,34 @@ class App extends Component {
             brews: brews
         })
     }
+
+   setMicro = () => {
+       this.setState({ type: 'micro'})
+   }
+
+   setContract = () => {
+    this.setState({ type: 'contract'})
+}
+
+setBrewPub = () => {
+    this.setState({ type: 'brewpub'})
+}
+
+setRegional = () => {
+    this.setState({ type: 'regional'})
+}
+
+componentDidUpdate(prevProp, prevState){
+    console.log('prevstate', prevState)
+    if ( prevState.type !== this.state.type){
+        fetch(`https://api.openbrewerydb.org/breweries?by_type=${this.state.type}`)
+        .then(resp => resp.json())
+        .then(brews => this.setState({
+            brews: brews
+        }))
+    }
+}
+
     render() {
 
         console.log('inside render', this.state)
@@ -51,6 +89,10 @@ class App extends Component {
             <div>
                 {this.loading()}
                 <Brews brews={this.state.brews} searchQuery={this.searchQuery}/>
+                <button onClick={this.setMicro}>Micro</button>
+                <button onClick={this.setContract}>Contract</button>
+                <button onClick={this.setBrewPub}>Brewpub</button>
+                <button onClick={this.setRegional}>Regional</button>
             </div>
         );
     }
