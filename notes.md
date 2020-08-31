@@ -54,7 +54,8 @@ _____________________________________________________________________________
 #### shouldComponentUpdate() optional
 
 - Invoked just before component will re-render
-- Can compare previous props or state with current props or state to avoid unnecessary re-render
+- Receives of next property or state as arguments
+- Can compare props or state to avoid unnecessary re-render
 - Can return boolean value, default is true
 
 #### render() required
