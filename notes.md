@@ -27,7 +27,6 @@ ____________________________________________________________________________
 - Can access any props/state or modify state
 - Uncommon to use, we want to initially render a component before manipulating data
 - For example, it might be handy for implementing a <Transition> component that compares its previous and next children to decide which of them to animate in and out
-[When to use derived state](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state)
 
 ```getDerivedStateFromProps exists for only one purpose. It enables a component to update its internal state as the result of changes in props. Our previous blog post provided some examples, like recording the current scroll direction based on a changing offset prop or loading external data specified by a source prop. We did not provide many examples, because as a general rule, derived state should be used sparingly. All problems with derived state that we have seen can be ultimately reduced to either (1) unconditionally updating state from props or (2) updating state whenever props and state don’t match. (We’ll go over both in more detail below.)```
 
@@ -39,7 +38,6 @@ ____________________________________________________________________________
 
 - Runs after the component output has been rendered to the dom
 - Commonly used for fetching/updating data/asynchronous processes
-
 _____________________________________________________________________________
 
 ### Updating
@@ -68,17 +66,30 @@ _____________________________________________________________________________
 - returns a 'snapshot' that can be used in componentDidUpdate
 - Have access to the values of `props` and `state` before the update
 - If you use this method, you have to include componentDidUpdate, will throw an error if you do not
-- 
 
-#### componentDidUpdate() optional 
+#### componentDidUpdate() optional
 
-- Called after component updates in the DOM 
-- 
+- Called after component updates in the DOM
 
 - [Examples of use cases](https://www.newline.co/@dmitryrogozhny/using-componentdidupdate-in-react--f037b5aa)
 
+### Unmounting
+
+- Phase when the React element is removed from the DOM
+- Deletion/Clean up phase
+- One method: componentWillUnmount
+
+#### componentWillUnmount()
+
+- Called before the component is removed from the DOM
 
 ## Good to know! :bulb:
 
 - [Styling Components](https://reactjs.org/docs/dom-elements.html#style)
 - [React Bootstrap](https://react-bootstrap.github.io/components/cards/)
+- [React.createRef()](https://www.newline.co/@dmitryrogozhny/how-to-access-dom-nodes-in-react-with-refs--57d97b3d)
+- [React Components Rendering Twice](https://medium.com/@andreasheissenberger/react-components-render-twice-any-way-to-fix-this-91cf23961625)
+- [React.PureComponent](https://reactjs.org/docs/react-api.html#reactpurecomponent)
+- [When to use PureComponent](https://medium.com/better-programming/when-to-use-react-purecomponent-723f85738be1#:~:text=PureComponent%20Is%20Primarily%20Used%20for,performance%20boost%20in%20some%20cases.)
+- [Use case for componentDidUpdate](https://kevgathuku.me/2018/06/07/a-practical-use-case-for-reacts-componentdidupdate/)
+- [When to use derived state](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state)
