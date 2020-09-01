@@ -69,6 +69,7 @@ _____________________________________________________________________________
 - returns a 'snapshot' that can be used in componentDidUpdate
 - Have access to the values of `props` and `state` before the update
 - If you use this method, you have to include componentDidUpdate, will throw an error if you do not
+- Snapshot is passed in as a third argument to componentDidUpdate
 
 #### componentDidUpdate() optional
 
