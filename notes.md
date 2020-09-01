@@ -37,6 +37,7 @@ ____________________________________________________________________________
 #### componentDidMount() optional
 
 - Runs after the component output has been rendered to the dom
+- If you need to load data, this is where you want to do it
 - Commonly used for fetching/updating data/asynchronous processes
 _____________________________________________________________________________
 
@@ -54,9 +55,10 @@ _____________________________________________________________________________
 #### shouldComponentUpdate() optional
 
 - Invoked just before component will re-render
-- Receives of next property or state as arguments
-- Can compare props or state to avoid unnecessary re-render
-- Can return boolean value, default is true
+- Receives `nextProps` or `nextState` as arguments
+- Should always return a boolean, default is `true`
+- Asking: 'Should I re-render?'
+- Improves performance by avoiding unnecessary re-renders
 
 #### render() required
 
