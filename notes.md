@@ -25,6 +25,7 @@ ____________________________________________________________________________
 
 - Gets called after the constructor but before render
 - Can access any props/state or modify state
+- Receives `props` and `state` as arguments
 - Uncommon to use, we want to initially render a component before manipulating data
 - For example, it might be handy for implementing a <Transition> component that compares its previous and next children to decide which of them to animate in and out
 
@@ -74,6 +75,7 @@ _____________________________________________________________________________
 #### componentDidUpdate() optional
 
 - Called after component updates in the DOM
+- Receives `prevProps` & `prevState` as arguments
 
 - [Examples of use cases](https://www.newline.co/@dmitryrogozhny/using-componentdidupdate-in-react--f037b5aa)
 
