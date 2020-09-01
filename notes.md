@@ -68,7 +68,7 @@ _____________________________________________________________________________
 #### getSnapshotBeforeUpdate() optional 
 
 - returns a 'snapshot' that can be used in componentDidUpdate
-- Have access to the values of `props` and `state` before the update
+- Receives `prevProps` and `prevState` as arguments
 - If you use this method, you have to include componentDidUpdate, will throw an error if you do not
 - Snapshot is passed in as a third argument to componentDidUpdate
 
@@ -99,3 +99,4 @@ _____________________________________________________________________________
 - [When to use PureComponent](https://medium.com/better-programming/when-to-use-react-purecomponent-723f85738be1#:~:text=PureComponent%20Is%20Primarily%20Used%20for,performance%20boost%20in%20some%20cases.)
 - [Use case for componentDidUpdate](https://kevgathuku.me/2018/06/07/a-practical-use-case-for-reacts-componentdidupdate/)
 - [When to use derived state](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state)
+- [Understanding Constructors](https://www.digitalocean.com/community/tutorials/react-constructors-with-react-components)

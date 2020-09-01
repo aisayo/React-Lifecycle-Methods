@@ -7,7 +7,7 @@ class App extends Component {
         super(props);
 
         this.state = {
-            user: true,
+            user: true
             brews: [],
             loading: true,
             type: ''
